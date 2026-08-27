@@ -1,0 +1,27 @@
+{
+  "name": "payments-on-dex-vercel",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Serverless, Vercel-native build of the XRPL Permissioned DEX demo. Vite static frontend + Express-as-serverless API under /api, with client-held state (no server disk).",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "dev:api": "node dev-api.js",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "xrpl": "^4.4.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^5.4.10"
+  }
+}
