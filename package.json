@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Serverless, Vercel-native build of the XRPL Permissioned DEX demo. Vite static frontend + Express-as-serverless API under /api, with client-held state (no server disk).",
   "engines": {
-    "node": ">=20.0.0"
+    "node": "22.x"
   },
   "scripts": {
     "dev": "vite",
@@ -18,10 +18,13 @@
     "express": "^4.19.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "xrpl": "^4.4.3"
+    "xrpl": "4.6.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
     "vite": "^5.4.10"
+  },
+  "overrides": {
+    "@noble/hashes": "1.8.0"
   }
 }
