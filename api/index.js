@@ -13,23 +13,6 @@ function getApp() {
 }
 
 export default async function handler(req, res) {
-  // Self-contained diagnostic that never imports xrpl, so it works even when
-  // the app module fails to load. Reports the runtime Node version and the
-  // resolved @scure/base version (to confirm whether overrides took effect).
-  if ((req.url || "").startsWith("/api/_diag")) {
-    let scureBase = null;
-    try {
-      const { createRequire } = await import("node:module");
-      const require = createRequire(import.meta.url);
-      scureBase = require("@scure/base/package.json").version;
-    } catch (e) {
-      scureBase = `resolve-failed: ${e?.message}`;
-    }
-    res.setHeader("content-type", "application/json");
-    res.end(JSON.stringify({ node: process.version, scureBase, commit: process.env.VERCEL_GIT_COMMIT_SHA || null }));
-    return;
-  }
-
   try {
     const app = await getApp();
     return app(req, res);
